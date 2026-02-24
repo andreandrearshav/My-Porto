@@ -26,7 +26,7 @@ export default function Education() {
         {sertif.map((item) => (
           <div
             key={item.id}
-            className="w-full max-w-sm bg-slate-700/40 border border-white/5 rounded shadow p-4">
+            className="w-full max-w-sm bg-slate-700/40 border hover:border-lime-400/40 hover:shadow-lime-500/10 transition border-white/5 rounded shadow p-4">
             <div className="flex flex-col gap-3">
               <img
                 src={item.logo}

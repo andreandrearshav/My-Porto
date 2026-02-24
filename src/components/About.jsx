@@ -1,6 +1,6 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
-
+import experience from "../data/Experience";
 export default function About() {
   return (
     <div className="text-white p-6 md:min-h-screen">
@@ -53,7 +53,7 @@ export default function About() {
         </div>
       </div>
       {/* Tech */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 mb-6 md:grid-cols-2 gap-3">
         <TechStack tittle="Tools">
           <ul className="text-cyan-300 space-y-2">
             <li>• VS Code</li>
@@ -70,6 +70,20 @@ export default function About() {
           </ul>
         </TechStack>
       </div>
+
+      {/* work Experience */}
+      <h1 className="font-bold">Experience</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        {experience.map((item) => (
+          <Experience
+            key={item.id}
+            instansi={item.instansi}
+            period={item.period}
+            status={item.status}
+            desc={item.desc}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -81,6 +95,26 @@ function TechStack({ tittle, children }) {
         {tittle}
       </h3>
       {children}
+    </div>
+  );
+}
+
+function Experience({ instansi, period, position, status, desc }) {
+  return (
+    <div className="bg-slate-600 p-4 rounded mt-6 shadow-lg">
+      <h1 className="font-bold mb-3">{position}</h1>
+      <p className="font-bold text-lime-500">
+        {" "}
+        {instansi} | {period}
+      </p>
+      <span className="inline-block bg-lime-100 text-xs mb-6 p-1 rounded text-lime-600">
+        {status}
+      </span>
+      <ul className="list-disc space-y-2 pl-5">
+        {desc?.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
