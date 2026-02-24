@@ -3,7 +3,7 @@ import { FaInstagram } from "react-icons/fa6";
 
 export default function About() {
   return (
-    <div className="text-white p-6 md:min-h-screen max-h-[560px] overflow-y-scroll sticky top-0">
+    <div className="text-white p-6 md:min-h-screen">
       <div className="bg-slate-700/40 rounded p-5 shadow-lg shadow-cyan-500/20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
           <div className="order-2 md:order-1">
