@@ -41,6 +41,18 @@ const education = [
       "Mempelajari integrasi REST API dan autentikasi.",
     ],
   },
+  // {
+  //   id: 5,
+  //   school: "PT. Amanah Karya Indonesia",
+  //   year: "2024",
+  //   status: "MSIB (magang studi independen bersertifikat)",
+  //   logo: "/education/msib.png",
+  //   desc: [
+  //     "Mengikuti program Magang Studi Independen Bersertifikat (MSIB).",
+  //     "Mempelajari Dasar-Dasar tentang pembangunan aplikasi berbasis web.",
+  //     "Berlatih kerja tim, komunikasi, dan penggunaan Git.",
+  //   ],
+  // },
 ];
 
 export default education;

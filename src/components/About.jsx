@@ -53,7 +53,7 @@ export default function About() {
         </div>
       </div>
       {/* Tech */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <TechStack tittle="Tools">
           <ul className="text-cyan-300 space-y-2">
             <li>• VS Code</li>
@@ -64,7 +64,7 @@ export default function About() {
 
         <TechStack tittle="Focus Area">
           <ul className="text-cyan-300 space-y-2">
-            <li>• Web Dashboard</li>
+            <li>• Web Development</li>
             <li>• CRUD Application</li>
             <li>• Backend Logic</li>
           </ul>

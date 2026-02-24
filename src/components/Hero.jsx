@@ -26,9 +26,9 @@ export default function Hero() {
   const pageTitle = title[location.pathname] || "My Portofolio";
   return (
     <>
-      <section className="min-h-screen flex bg-slate-800">
+      <section className="min-h-screen hidden md:flex bg-slate-800">
         <div
-          className={`shadow-lg shadow-lime-400/30  min-h-screen transition-all duration-300 ${open ? "w-56" : "w-16"}`}>
+          className={`shadow-lg shadow-lime-400/30   min-h-screen transition-all duration-300 ${open ? "w-56" : "w-16"}`}>
           <div className="px-3  mb-6 mt-4 flex justify-center gap-2 items-center">
             <div>
               <img
@@ -51,7 +51,7 @@ export default function Hero() {
                 to={i.path}
                 className={({ isActive }) => `text-white w-full  flex gap-3
                 px-3 py-2 rounded-md
-                ${isActive ? "bg-slate-600" : "hover:bg-slate-600"}
+                ${isActive ? "bg-slate-600 text-lime-500" : "hover:bg-slate-600"}
                 transition duration-200`}>
                 {i.icon}
                 <span className={`${open ? "w-36" : "hidden"}`}>{i.name}</span>
@@ -82,6 +82,47 @@ export default function Hero() {
         </main>
       </section>
       {/* mobile */}
+
+      <section className="md:hidden min-h-screen bg-slate-800">
+        <header>
+          <div className="p-4 shadow flex items-center gap-3">
+            <div className="flex items-center gap-4">
+              <img
+                src="andre.png"
+                className="rounded-full border h-10 w-10 object-cover"
+                alt=""
+              />
+              <h1 className="font-bold text-lime-500">{pageTitle}</h1>
+            </div>
+          </div>
+        </header>
+
+        {/* main */}
+        <div className="flex">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/project" element={<Project />} />
+          </Routes>
+        </div>
+
+        <nav className="sticky bottom-0 left-0 right-0 bg-slate-900 border-t border-slate-700">
+          <div className="flex justify-around py-2">
+            {btn.map((i, index) => (
+              <NavLink
+                className={({ isActive }) =>
+                  `flex flex-col items-center text-sm transition ${isActive ? "text-lime-500" : "hover:text-lime-500 text-white"}`
+                }
+                key={index}
+                to={i.path}>
+                {i.icon}
+                {i.name}
+              </NavLink>
+            ))}
+          </div>
+        </nav>
+      </section>
     </>
   );
 }

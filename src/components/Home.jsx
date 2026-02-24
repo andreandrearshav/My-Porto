@@ -5,7 +5,7 @@ import { FaHtml5, FaLaravel, FaReact } from "react-icons/fa";
 import { FaCss3 } from "react-icons/fa6";
 export default function Home() {
   return (
-    <div className="p-6 text-white ">
+    <div className="md:p-6 mx-auto w-full px-4 min-h-screen text-white ">
       {/* HEADER */}
       <h1 className="text-2xl font-bold mb-1">Dashboard</h1>
       <p className="text-gray-400 mb-6">Portfolio Overview</p>
@@ -23,13 +23,13 @@ export default function Home() {
           <ul className="space-y-2 text-gray-300 ">
             <li>✔ React Basic & Component</li>
             <li>✔ Laravel Basic & Component</li>
-            <li>✔ React Router</li>
+            {/* <li>✔ React Router</li> */}
             <li>✔ Tailwind Layout</li>
-            {/* <li>⏳ Portfolio Website Development</li> */}
+            <li>✔ Portfolio Website Development</li>
           </ul>
         </div>
         {/* Progress */}
-        <div className="bg-slate-600/40 p-4  rounded-md">
+        <div className="bg-slate-600/40 p-4 rounded-md">
           <h3 className="text-2xl font-bold text-center mb-4">
             Learning Progress
           </h3>
@@ -40,17 +40,17 @@ export default function Home() {
           />
           <Progress
             title={"Laravel "}
-            value={75}
+            value={70}
             icon={<FaLaravel size={20} color="red" />}
           />
           <Progress
             title={"Html "}
-            value={75}
+            value={70}
             icon={<FaHtml5 size={20} color="red" />}
           />
           <Progress
             title={"CSS "}
-            value={75}
+            value={70}
             icon={<FaCss3 size={20} color="cyan" />}
           />
         </div>
