@@ -1,6 +1,6 @@
 export default function Project() {
   return (
-    <div className="p-6 min-h-screen">
+    <div id="project" className="p-6 min-h-screen py-10 scroll-mt-24">
       <h1 className="text-2xl font-bold text-lime-400 mb-6">My Project</h1>
       <div className="bg-slate-700 w-full p-4 rounded shadow-md shadow-lime-500">
         <h2 className="text-gray-300 font-semibold mb-2">Mini Project</h2>

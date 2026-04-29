@@ -1,9 +1,13 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import experience from "../data/Experience";
+// import { Canvas } from "@react-three/fiber";
+// import Lanyard from "@/component/Lanyard";
 export default function About() {
   return (
-    <div className="text-white p-6 md:min-h-screen">
+    <div
+      id="about"
+      className="text-white p-6 md:min-h-screen scroll-mt-20 py-10 px-4">
       <div className="bg-slate-700/40 rounded p-5 shadow-lg shadow-cyan-500/20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
           <div className="order-2 md:order-1">

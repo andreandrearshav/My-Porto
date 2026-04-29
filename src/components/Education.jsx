@@ -5,7 +5,7 @@ import { useRef } from "react";
 export default function Education() {
   const wrapper = useRef(null);
   return (
-    <div className="text-white p-6 min-h-screen">
+    <div id="education" className="text-white p-6 min-h-screen">
       <h1 className="text-2xl font-bold mb-1">Education</h1>
       <p className="text-gray-400 mb-6">Formal & Non-Formal Education</p>
       <p className="font-bold mb-4">Formal </p>

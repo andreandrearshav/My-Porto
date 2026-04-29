@@ -1,92 +1,85 @@
-import { FolderX } from "lucide-react";
-import { BookOpen } from "lucide-react";
-import { Folder, User, Code, GraduationCap } from "lucide-react";
-import { FaHtml5, FaLaravel, FaReact } from "react-icons/fa";
-import { FaCss3 } from "react-icons/fa6";
 export default function Home() {
-  return (
-    <div className="md:p-6 mx-auto w-full px-4 min-h-screen text-white ">
-      {/* HEADER */}
-      <h1 className="text-2xl font-bold mb-1">Dashboard</h1>
-      <p className="text-gray-400 mb-6">Portfolio Overview</p>
+  const checks = [
+    "React Basic & Component",
+    "Laravel Basic & Component",
+    "Tailwind Layout",
+    "Portfolio Website Development",
+  ];
 
-      {/* SUMMARY CARDS */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-        <Card title="Tech Stack" value="Laravel & Tailwind" icon={<Code />} />
-        <Card title="Learning Status" value="On Progress" icon={<BookOpen />} />
-        <Card title="Projects" value="In Progress" icon={<FolderX />} />
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {/* RECENT PROJECT */}
-        <div className="bg-slate-600/40 p-4 rounded">
-          <h2 className="font-bold mb-3">Learning Progress</h2>
-          <ul className="space-y-2 text-gray-300 ">
-            <li>✔ React Basic & Component</li>
-            <li>✔ Laravel Basic & Component</li>
-            {/* <li>✔ React Router</li> */}
-            <li>✔ Tailwind Layout</li>
-            <li>✔ Portfolio Website Development</li>
-          </ul>
+  const skills = [
+    { name: "React", value: 60, color: "#378ADD" },
+    { name: "Laravel", value: 70, color: "#E24B4A" },
+    { name: "HTML", value: 70, color: "#D85A30" },
+    { name: "CSS", value: 70, color: "#1D9E75" },
+  ];
+
+  return (
+    <div
+      id="home"
+      className="min-h-screen flex items-center scroll-mt-24 py-10 px-4 md:px-6">
+      <div className="w-full max-w-4xl mx-auto">
+        {/* HERO */}
+        <div className="mb-10 md:mb-14">
+          <h1 className="text-2xl md:text-5xl font-semibold text-white leading-tight mb-3 md:mb-4">
+            Halo, saya{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+              Andre
+            </span>
+          </h1>
+
+          <p className="text-sm md:text-base text-slate-300 max-w-xl leading-relaxed">
+            Frontend developer yang sedang belajar React, Laravel, dan Tailwind.
+            Fokus membangun UI modern dan pengalaman pengguna yang clean.
+          </p>
         </div>
-        {/* Progress */}
-        <div className="bg-slate-600/40 p-4 rounded-md">
-          <h3 className="text-2xl font-bold text-center mb-4">
-            Learning Progress
-          </h3>
-          <Progress
-            title={"React "}
-            value={60}
-            icon={<FaReact size={20} color="cyan" />}
-          />
-          <Progress
-            title={"Laravel "}
-            value={70}
-            icon={<FaLaravel size={20} color="red" />}
-          />
-          <Progress
-            title={"Html "}
-            value={70}
-            icon={<FaHtml5 size={20} color="red" />}
-          />
-          <Progress
-            title={"CSS "}
-            value={70}
-            icon={<FaCss3 size={20} color="cyan" />}
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
 
-function Card({ title, value, icon }) {
-  return (
-    <div className="bg-slate-700/40 p-4 rounded flex items-center gap-3">
-      <div className="text-indigo-400">{icon}</div>
-      <div>
-        <p className="text-sm text-gray-400">{title}</p>
-        <h3 className="font-bold">{value}</h3>
-      </div>
-    </div>
-  );
-}
+        {/* GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+          {/* CHECKLIST */}
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 md:p-6">
+            <p className="text-[10px] md:text-xs uppercase tracking-widest text-slate-400 mb-4 md:mb-5">
+              Yang sudah dipelajari
+            </p>
 
-function Progress({ title, value, icon }) {
-  return (
-    <div className="mb-4">
-      <div className="flex justify-between items-center text-sm mb-1">
-        <div className="p-3 rounded-md gap-3 flex">
-          <div className="flex items-center gap-2">
-            <span>{icon}</span>
-            <span>{title}</span>
+            <ul className="space-y-2 md:space-y-3">
+              {checks.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-2 md:gap-3 text-xs md:text-sm text-slate-200">
+                  <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-emerald-400" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-          <span className="text-yellow-400">{value}%</span>
-        </div>
-        <div className="w-full bg-slate-200 rounded-full h-2">
-          <div
-            className="w-full h-2 bg-indigo-700 rounded-full transition-all"
-            style={{ width: `${value}%` }}
-          />
+
+          {/* SKILLS */}
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 md:p-6">
+            <p className="text-[10px] md:text-xs uppercase tracking-widest text-slate-400 mb-4 md:mb-5">
+              Progress skill
+            </p>
+
+            <div className="space-y-3 md:space-y-4">
+              {skills.map((s) => (
+                <div key={s.name}>
+                  <div className="flex justify-between text-[10px] md:text-xs text-slate-300 mb-1">
+                    <span>{s.name}</span>
+                    <span>{s.value}%</span>
+                  </div>
+
+                  <div className="h-1.5 md:h-2 bg-slate-700/50 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all duration-700"
+                      style={{
+                        width: `${s.value}%`,
+                        background: `linear-gradient(to right, ${s.color}, white)`,
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
