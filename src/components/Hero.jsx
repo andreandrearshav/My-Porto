@@ -1,9 +1,10 @@
 import { NavLink, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
-import Education from "./Education";
 import Project from "./Project";
 import LiquidEther from "@/component/LiquidEther";
+import Particles from "@/component/Particles";
+import DotField from "@/component/DotField";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -20,16 +21,16 @@ export default function Hero() {
     const sections = document.querySelectorAll("div[id]");
 
     const handleScroll = () => {
-      if (window.scrollY < 80) {
-        setActive("home");
-        return;
-      }
-      let current = "";
+      let current = "home";
       sections.forEach((section) => {
-        const top = section.offsetTop - 100;
-        const height = section.offsetHeight;
+        // const top = section.offsetTop - 100;
+        // const height = section.offsetHeight;
+        // if (window.scrollY >= top && window.scrollY < top + height) {
+        //   current = section.id;
+        // }
 
-        if (window.scrollY >= top && window.scrollY < top + height) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom >= 150) {
           current = section.id;
         }
       });
@@ -58,31 +59,27 @@ export default function Hero() {
   return (
     <>
       {/* LiquidEther background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <LiquidEther
-          colors={["#5227FF", "#FF9FFC", "#B497CF"]}
-          mouseForce={20}
-          cursorSize={100}
-          isViscous
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
-          isBounce={false}
-          autoDemo
-          autoSpeed={0.5}
-          autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
-          autoRampDuration={0.6}
-          color0="#5227FF"
-          color1="#FF9FFC"
-          color2="#B497CF"
+      <div
+        className="fixed inset-0 z-0 pointer-events-none bg-[#120f17]"
+        style={{ width: "100vw", height: "100vh" }}>
+        <DotField
+          dotRadius={1.5}
+          dotSpacing={14}
+          bulgeStrength={67}
+          glowRadius={160}
+          sparkle={false}
+          waveAmplitude={0}
+          cursorRadius={600}
+          cursorForce={0.2}
+          bulgeOnly
+          gradientFrom="#A855F7"
+          gradientTo="#B497CF"
+          glowColor="#120F17"
         />
       </div>
 
       {/* Desktop navbar */}
-      <nav className="hidden md:block fixed top-6 left-1/2 -translate-x-1/2 z-20 w-[calc(100%-8rem)] max-w-3xl rounded-full bg-black/20 backdrop-blur-md border border-white/10">
+      <nav className="hidden md:block fixed top-6 left-1/2 -translate-x-1/2 z-20 w-[calc(100%-8rem)] max-w-3xl rounded-full bg-transparent backdrop-blur-md border border-white/10">
         <div className="px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img
@@ -117,7 +114,7 @@ export default function Hero() {
       </nav>
 
       {/* Main content */}
-      <main className="relative z-10 min-h-screen bg-transparent md:pt-28 pb-20 md:pb-0">
+      <main className="relative z-10 min-h-screen bg-[#120f17]/30 md:pt-28 pb-20 md:pb-0">
         <div className="max-w-4xl mx-auto px-6 py-8 md:py-0">
           {/* <Routes>
             <Route path="/" element={<Home />} />
